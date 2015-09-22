@@ -741,6 +741,7 @@ VCO.StoryMap = VCO.Class.extend({
 	},
 
 	_onGetEmbed: function(e) {
+		this._onBackToStart();
 		this.current_slide = (this._storyslider._slides.length-1);
 		this._map.goTo(this.current_slide);
 		this._storyslider.goTo(this.current_slide);
