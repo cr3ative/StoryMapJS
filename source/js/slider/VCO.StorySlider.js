@@ -574,8 +574,12 @@ VCO.StorySlider = VCO.Class.extend({
 
 		var embed_slide_object = {
 			text: {
-					"headline":"Embed code!",
-					"text":"<textarea>Bold?</textarea>"
+					"headline":"Embed This Map",
+					"text":"<p>If you have an internet website you can embed this map, probably. Further instructions maybe. Maybe.</p>\
+					<p>These are just filler words. Can you tell?</p>\
+					<p>Total filler.</p>\
+					<p>Anyway, code:</p>\
+					<textarea onclick=\"this.focus();this.select()\" readonly=\"readonly\" class='bf_embed_iframe'><iframe src=\"http://server/storymap/index.html?url=urlfor.json\" frameborder=\"0\" width=\"100%\" height=\"640\"></iframe></textarea>"
 			}
 		};
 
