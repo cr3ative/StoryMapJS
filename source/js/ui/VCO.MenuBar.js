@@ -115,6 +115,10 @@ VCO.MenuBar = VCO.Class.extend({
 	_onButtonBackToStart: function(e) {
 		this.fire("back_to_start", e);
 	},
+
+	_onButtonGetEmbed: function(e) {
+		this.fire("get_embed", e);
+	},
 	
 	_onButtonCollapseMap: function(e) {
 		if (this.collapsed) {
@@ -149,9 +153,12 @@ VCO.MenuBar = VCO.Class.extend({
 		this._el.button_overview 						= VCO.Dom.create('span', 'vco-menubar-button', this._el.container);
 		VCO.DomEvent.addListener(this._el.button_overview, 'click', this._onButtonOverview, this);
 		
+		this._el.button_getembed 					= VCO.Dom.create('span', 'vco-menubar-button', this._el.container);
+		VCO.DomEvent.addListener(this._el.button_getembed, 'click', this._onButtonGetEmbed, this);
+
 		this._el.button_backtostart 					= VCO.Dom.create('span', 'vco-menubar-button', this._el.container);
 		VCO.DomEvent.addListener(this._el.button_backtostart, 'click', this._onButtonBackToStart, this);
-		
+	
 		this._el.button_collapse_toggle 				= VCO.Dom.create('span', 'vco-menubar-button', this._el.container);
 		VCO.DomEvent.addListener(this._el.button_collapse_toggle, 'click', this._onButtonCollapseMap, this);
 		
@@ -162,12 +169,12 @@ VCO.MenuBar = VCO.Class.extend({
 		}
 		
 		if (VCO.Browser.mobile) {
-			
 			this._el.button_backtostart.innerHTML		= "<span class='vco-icon-goback'></span>";
 			this._el.button_collapse_toggle.innerHTML	= "<span class='vco-icon-arrow-up'></span>";
 			this._el.container.setAttribute("ontouchstart"," ");
+			this._el.button_getembed.style.display = "none";
 		} else {
-			
+			this._el.button_getembed.innerHTML		= VCO.Language.buttons.getembed;
 			this._el.button_backtostart.innerHTML		= VCO.Language.buttons.backtostart + " <span class='vco-icon-goback'></span>";
 			this._el.button_collapse_toggle.innerHTML	= VCO.Language.buttons.collapse_toggle + "<span class='vco-icon-arrow-up'></span>";
 		}

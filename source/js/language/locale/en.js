@@ -19,6 +19,7 @@ VCO.Language = {
         start:              "Start Exploring"
     },
     buttons: {
+    		getembed:       		"Embed",
         map_overview:       "Map Overview",
         overview:           "Overview",
         backtostart:        "Back To Beginning",

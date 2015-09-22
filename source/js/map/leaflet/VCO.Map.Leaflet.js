@@ -9,11 +9,15 @@ VCO.Map.Leaflet = VCO.Map.extend({
 	/*	Create the Map
 	================================================== */
 	_createMap: function() {
+
+		var zc = !this.options.map_mini;
+
+		if (this.options.map_disable_zc) {
+			zc = false;
+		}
 		
-		
-		this._map = new L.map(this._el.map, {scrollWheelZoom:false, zoomControl:!this.options.map_mini});
+		this._map = new L.map(this._el.map, {scrollWheelZoom:false, zoomControl:zc});
 		this._map.on("load", this._onMapLoaded, this);
-		
 		
 		this._map.on("moveend", this._onMapMoveEnd, this);
 		this._map.attributionControl.setPrefix("<a href='http://storymap.knightlab.com/' target='_blank' class='vco-knightlab-brand'><span>&#x25a0;</span> StoryMapJS</a>");

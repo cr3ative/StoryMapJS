@@ -81,6 +81,7 @@ VCO.Map = VCO.Class.extend({
 			map_type: 			"stamen:toner-lite",
 			map_as_image: 		false,
 			map_mini: 			false,
+			map_disable_zc: 		true,
 			map_background_color: "#d9d9d9",
 			map_subdomains: 	"",
 			map_access_token:   "",

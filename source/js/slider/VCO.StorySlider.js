@@ -232,8 +232,8 @@ VCO.StorySlider = VCO.Class.extend({
 			// Set Slide Active State
 			this._slides[this.current_slide].setActive(true);
 			
-			// Update Navigation and Info
-			if (this._slides[this.current_slide + 1]) {
+			// Update Navigation and Info 			(the +2 here allows for the special BuzzFeed embed slide)
+			if (this._slides[this.current_slide + 2]) {
 				this.showNav(this._nav.next, true);
 				this._nav.next.update(this.getNavInfo(this._slides[this.current_slide + 1]));
 			} else {
@@ -244,6 +244,12 @@ VCO.StorySlider = VCO.Class.extend({
 				this._nav.previous.update(this.getNavInfo(this._slides[this.current_slide - 1]));
 			} else {
 				this.showNav(this._nav.previous, false);
+			}
+
+			// If we're on the embed slide, hide all nav
+			if (this.current_slide == this._slides.length - 1) {
+				this.showNav(this._nav.previous, false);
+				this.showNav(this._nav.next, false);
 			}
 			
 			
@@ -565,7 +571,19 @@ VCO.StorySlider = VCO.Class.extend({
 	
 	_initData: function() {
 		// Create Slides and then add them
+
+		var embed_slide_object = {
+			text: {
+					"headline":"Embed code!",
+					"text":"<textarea>Bold?</textarea>"
+			}
+		};
+
+		var embed_slide = [];
+		this.data.slides.push(embed_slide_object);
+
 		this._createSlides(this.data.slides);
+		
 	},
 	
 	/*	Events

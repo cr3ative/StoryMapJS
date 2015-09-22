@@ -554,6 +554,7 @@ VCO.StoryMap = VCO.Class.extend({
 		// Sidebar Events
 		this._menubar.on('collapse', this._onMenuBarCollapse, this);
 		this._menubar.on('back_to_start', this._onBackToStart, this);
+		this._menubar.on('get_embed', this._onGetEmbed, this);
 		this._menubar.on('overview', this._onOverview, this);
 		
 		// StorySlider Events
@@ -734,6 +735,13 @@ VCO.StoryMap = VCO.Class.extend({
 	
 	_onBackToStart: function(e) {
 		this.current_slide = 0;
+		this._map.goTo(this.current_slide);
+		this._storyslider.goTo(this.current_slide);
+		this.fire("change", {current_slide: this.current_slide}, this);
+	},
+
+	_onGetEmbed: function(e) {
+		this.current_slide = (this._storyslider._slides.length-1);
 		this._map.goTo(this.current_slide);
 		this._storyslider.goTo(this.current_slide);
 		this.fire("change", {current_slide: this.current_slide}, this);

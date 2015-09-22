@@ -7,8 +7,9 @@ VCO.Language = {
 		start: 				"Start Exploring"
 	},
 	buttons: {
+    	getembed:       		"Embed",
 	    map_overview: 		"Map Overview",
-		overview: 			"Overview",
+			overview: 			"Overview",
 	    backtostart: 		"Back To Beginning",
 	    collapse_toggle: 	"Hide Map",
 	    uncollapse_toggle: 	"Show Map"
