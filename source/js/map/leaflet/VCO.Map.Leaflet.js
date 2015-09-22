@@ -20,7 +20,7 @@ VCO.Map.Leaflet = VCO.Map.extend({
 		this._map.on("load", this._onMapLoaded, this);
 		
 		this._map.on("moveend", this._onMapMoveEnd, this);
-		this._map.attributionControl.setPrefix("<a href='http://storymap.knightlab.com/' target='_blank' class='vco-knightlab-brand'><span>&#x25a0;</span> StoryMapJS</a>");
+		this._map.attributionControl.setPrefix("<a href='http://www.buzzfeed.com/' target='_blank'><img style='width:88px;position:relative;top:1px' src='http://game-assets.buzzfeed.com/_uk/bz-lg.png'/></a> | <a href='http://storymap.knightlab.com/' target='_blank'>StoryMapJS</a>");
 			
 		var map_type_arr = this.options.map_type.split(':');		
 
