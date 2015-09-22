@@ -68,4 +68,4 @@ Files located in the `website` directory are for the storymapjs website.
 
 Edit config.json as needed to modify the staging and deployment process.
           
-At this time, edits to the HTML for the website are automatically visible when reloading the local server. Edits to CSS and JavaScript must be manually compiled before you'll see them.  Run `fab build`. This is something we'd like to make more automatic eventually.
+At this time, edits to the HTML for the website are automatically visible when reloading the local server. Edits to CSS and JavaScript must be manually compiled before you'll see them. You'll need LESS installed; `npm install less --global` will sort this. Then you can run `fab build`. This is something we'd like to make more automatic eventually.

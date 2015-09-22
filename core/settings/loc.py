@@ -9,7 +9,8 @@ from .base import *
 secrets_path = os.path.normpath(os.path.join(PROJECT_ROOT, '../secrets/storymapjs/loc'))
 sys.path.append(secrets_path)
 
-from secrets import *
+if os.path.exists(secrets_path):
+	from secrets import *
 
 # Set Flask configuration
 os.environ['FLASK_CONFIG_MODULE'] = os.path.join(secrets_path, 'flask_config.py')

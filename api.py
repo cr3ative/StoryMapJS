@@ -33,11 +33,18 @@ import requests
 import slugify
 import bson
 from oauth2client.client import OAuth2WebServerFlow
-from storymap import storage, google
-from storymap.connection import _user
 
 app = Flask(__name__)
-app.config.from_envvar('FLASK_CONFIG_MODULE')
+
+try:
+  FLASK_CONFIG_MODULE
+except NameError:
+	print "********* APPLICATION SEVERELY DEGRADED. *********"
+	print "Flask configuration not found. We're disabling Mongo, and Google Authentication won't work either. Pretty much the only useful thing Flask is doing is serving the compiled JS out to you now, which you can find at /build/js/storymap.js"
+else:
+  app.config.from_envvar('FLASK_CONFIG_MODULE')
+  from storymap import storage, google
+  from storymap.connection import _user
 
 settings = sys.modules[settings_module]
 
