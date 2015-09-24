@@ -50,6 +50,13 @@ VCO.Map.Leaflet = VCO.Map.extend({
 			this._line.setStyle({opacity:0});
 		}
 
+		// Disable map interaction
+
+		this._map.dragging.disable();
+		this._map.touchZoom.disable();
+		this._map.doubleClickZoom.disable();
+		this._map.scrollWheelZoom.disable();
+		if (this._map.tap) this._map.tap.disable();
 		
 		
 	},
